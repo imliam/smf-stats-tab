@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+
+	<id>LiamHammett:StatsTab</id>
+	<version>1.0</version>
+
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="before"><![CDATA[
+			'help' => array(
+				'title' => $txt['help'],
+				'href' => $scripturl . '?action=help',
+				'show' => true,
+				'sub_buttons' => array(
+				),
+			),]]></search>
+			<add><![CDATA[
+			'statistics' => array(
+				'title' => $txt['statistics'],
+				'href' => $scripturl . '?action=stats',
+				'show' => true,
+				'sub_buttons' => array(
+				),
+			),]]></add>
+		</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['statistics'] = 'Stats';
+]]></add>
+		</operation>
+	</file>
+</modification>

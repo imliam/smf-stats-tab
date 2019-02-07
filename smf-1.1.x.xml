@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+
+	<id>LiamHammett:StatsTab</id>
+	<version>1.0</version>
+
+	<file name="$themedir/index.template.php">
+		<operation>
+			<search position="after"><![CDATA[	// the [member] list button
+	if ($context['allow_memberlist'])
+		echo ($current_action == 'mlist' || $context['browser']['is_ie4']) ? '<td class="maintab_active_' . $first . '">&nbsp;</td>' : '' , '
+				<td valign="top" class="maintab_' , $current_action == 'mlist' ? 'active_back' : 'back' , '">
+					<a href="', $scripturl, '?action=mlist">' , $txt[331] , '</a>
+				</td>' , $current_action == 'mlist' ? '<td class="maintab_active_' . $last . '">&nbsp;</td>' : '';]]></search>
+			<add><![CDATA[
+// Show the [Stats] button
+      echo ($current_action == 'stats' || $context['browser']['is_ie4']) ? '<td class="maintab_active_' . $first . '">&nbsp;</td>' : '' , '
+            <td valign="top" class="maintab_' , $current_action == 'stats' ? 'active_back' : 'back' , '">
+               <a href="', $scripturl, '?action=stats">' , $txt['stats_mod'] , '</a>
+            </td>' , $current_action == 'stats' ? '<td class="maintab_active_' . $last . '">&nbsp;</td>' : '';]]></add>
+		</operation>
+	</file>
+
+	<file name="$languagedir/Modifications.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['stats_mod']= 'Stats';
+]]></add>
+		</operation>
+	</file>
+</modification>
